@@ -13,6 +13,26 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Workout Library | FitnessPro",
+  description:
+    "Browse our collection of expert-designed workouts for all fitness levels, from strength training to HIIT, cardio, yoga, and mobility.",
+  openGraph: {
+    title: "Workout Library | FitnessPro",
+    description:
+      "Browse our collection of expert-designed workouts for all fitness levels, from strength training to HIIT, cardio, yoga, and mobility.",
+    images: [
+      {
+        url: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1",
+        width: 1200,
+        height: 630,
+        alt: "Workout Library",
+      },
+    ],
+  },
+};
 
 const workoutCategories = [
   { id: "strength", name: "Strength" },
@@ -28,7 +48,8 @@ const workouts = [
     title: "Full Body Strength Workout",
     description:
       "Build muscle and strength with this comprehensive full body workout routine.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "strength",
     duration: 45,
     difficulty: "Intermediate",
@@ -40,7 +61,8 @@ const workouts = [
     title: "20-Minute HIIT Calorie Burner",
     description:
       "Maximize fat loss with this high-intensity interval training session that burns up to 400 calories.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/999309/pexels-photo-999309.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "hiit",
     duration: 20,
     difficulty: "Advanced",
@@ -52,7 +74,8 @@ const workouts = [
     title: "5K Running Program",
     description:
       "Progressive running plan designed to help you complete your first 5K race.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/2803158/pexels-photo-2803158.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "cardio",
     duration: 30,
     difficulty: "Beginner",
@@ -64,7 +87,8 @@ const workouts = [
     title: "Yoga for Flexibility",
     description:
       "Improve your range of motion and prevent injuries with this yoga flow.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "yoga",
     duration: 40,
     difficulty: "Beginner",
@@ -76,7 +100,8 @@ const workouts = [
     title: "Mobility Routine for Athletes",
     description:
       "Enhance performance and reduce pain with targeted mobility exercises.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/4498151/pexels-photo-4498151.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "mobility",
     duration: 25,
     difficulty: "Intermediate",
@@ -88,7 +113,8 @@ const workouts = [
     title: "Upper Body Strength Builder",
     description:
       "Focus on developing your chest, back, shoulders and arms with this targeted routine.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "strength",
     duration: 50,
     difficulty: "Intermediate",
@@ -168,7 +194,7 @@ interface WorkoutCardProps {
 
 function WorkoutCard({ workout }: WorkoutCardProps) {
   return (
-    <Card className="overflow-hidden group">
+    <Card className="overflow-hidden group h-full flex flex-col">
       <div className="relative aspect-video overflow-hidden">
         <Image
           src={workout.image || "/placeholder.svg"}
@@ -221,7 +247,7 @@ function WorkoutCard({ workout }: WorkoutCardProps) {
         </CardDescription>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="flex-grow">
         <p className="text-muted-foreground line-clamp-2">
           {workout.description}
         </p>

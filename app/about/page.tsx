@@ -10,15 +10,35 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | FitnessPro",
+  description:
+    "Learn about FitnessPro's mission, team, and approach to providing science-backed fitness and nutrition information.",
+  openGraph: {
+    title: "About Us | FitnessPro",
+    description:
+      "Learn about FitnessPro's mission, team, and approach to providing science-backed fitness and nutrition information.",
+    images: [
+      {
+        url: "https://images.pexels.com/photos/3912516/pexels-photo-3912516.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1",
+        width: 1200,
+        height: 630,
+        alt: "FitnessPro Team",
+      },
+    ],
+  },
+};
 
 const team = [
   {
     name: "John Doe",
     role: "Founder & Head Coach",
     bio: "Former professional athlete with 15+ years of coaching experience. Specializes in strength training and athletic performance.",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
     social: {
       twitter: "https://twitter.com",
       instagram: "https://instagram.com",
@@ -29,7 +49,8 @@ const team = [
     name: "Jane Smith",
     role: "Nutrition Specialist",
     bio: "Registered Dietitian with a Master's in Sports Nutrition. Helps athletes optimize their diet for performance and recovery.",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
     social: {
       twitter: "https://twitter.com",
       instagram: "https://instagram.com",
@@ -40,7 +61,8 @@ const team = [
     name: "Mike Johnson",
     role: "HIIT & Cardio Coach",
     bio: "Certified personal trainer specializing in high-intensity interval training and cardiovascular fitness programs.",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
     social: {
       twitter: "https://twitter.com",
       instagram: "https://instagram.com",
@@ -51,7 +73,8 @@ const team = [
     name: "Sarah Williams",
     role: "Yoga & Recovery Specialist",
     bio: "200-hour certified yoga instructor with a focus on using yoga for athletic recovery and mobility improvement.",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
     social: {
       twitter: "https://twitter.com",
       instagram: "https://instagram.com",
@@ -66,21 +89,24 @@ const testimonials = [
     role: "Marathon Runner",
     quote:
       "The training programs and nutrition advice from FitnessPro completely transformed my marathon performance. I shaved 15 minutes off my personal best!",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1",
   },
   {
     name: "Emily Rodriguez",
     role: "Fitness Enthusiast",
     quote:
       "As someone new to strength training, the beginner guides were incredibly helpful. The step-by-step instructions and form tips gave me the confidence to start my fitness journey.",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1",
   },
   {
     name: "Mark Thompson",
     role: "CrossFit Athlete",
     quote:
       "The mobility routines and recovery techniques have been game-changers for my performance. I've seen significant improvements in my lifts and overall movement quality.",
-    image: "/placeholder.svg?height=100&width=100",
+    image:
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1",
   },
 ];
 
@@ -119,7 +145,7 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-square rounded-xl overflow-hidden">
             <Image
-              src="/placeholder.svg?height=600&width=600"
+              src="https://images.pexels.com/photos/3912516/pexels-photo-3912516.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1"
               alt="FitnessPro team"
               fill
               className="object-cover"
@@ -315,166 +341,6 @@ export default function AboutPage() {
             </Card>
           ))}
         </div>
-      </section>
-
-      <section className="py-12 md:py-24">
-        <Tabs defaultValue="story" className="max-w-3xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="story">Our Story</TabsTrigger>
-            <TabsTrigger value="values">Our Values</TabsTrigger>
-            <TabsTrigger value="approach">Our Approach</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="story" className="mt-6 space-y-4">
-            <h3 className="font-heading text-2xl font-bold">
-              How FitnessPro Began
-            </h3>
-            <p>
-              FitnessPro was founded in 2018 by John Doe, a former professional
-              athlete who saw a need for evidence-based fitness information that
-              was accessible to everyone. After retiring from competition, John
-              pursued certifications in personal training and sports nutrition,
-              combining his practical experience with scientific knowledge.
-            </p>
-            <p>
-              What started as a small blog sharing workout tips quickly grew
-              into a comprehensive resource for fitness enthusiasts of all
-              levels. As the community expanded, John brought on additional
-              experts to provide specialized knowledge in areas like nutrition,
-              mobility, and different training methodologies.
-            </p>
-            <p>
-              Today, FitnessPro serves thousands of readers monthly, providing
-              them with the tools and knowledge they need to achieve their
-              health and fitness goals.
-            </p>
-          </TabsContent>
-
-          <TabsContent value="values" className="mt-6 space-y-4">
-            <h3 className="font-heading text-2xl font-bold">
-              What We Stand For
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-primary mr-2 mt-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div>
-                  <strong>Integrity:</strong> We're committed to providing
-                  honest, accurate information, even when it contradicts popular
-                  trends or myths in the fitness industry.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-primary mr-2 mt-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div>
-                  <strong>Inclusivity:</strong> We believe fitness is for
-                  everyone, regardless of age, gender, background, or current
-                  fitness level.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-primary mr-2 mt-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div>
-                  <strong>Education:</strong> We focus on explaining the "why"
-                  behind our recommendations, empowering you to make informed
-                  decisions.
-                </div>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="h-5 w-5 text-primary mr-2 mt-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div>
-                  <strong>Balance:</strong> We promote sustainable approaches to
-                  fitness that enhance overall wellbeing, not just physical
-                  appearance.
-                </div>
-              </li>
-            </ul>
-          </TabsContent>
-
-          <TabsContent value="approach" className="mt-6 space-y-4">
-            <h3 className="font-heading text-2xl font-bold">
-              How We Create Content
-            </h3>
-            <p>
-              At FitnessPro, we follow a rigorous process to ensure all our
-              content is accurate, effective, and user-friendly:
-            </p>
-            <ol className="list-decimal pl-5 space-y-2">
-              <li>
-                <strong>Research:</strong> We start by reviewing the latest
-                scientific literature and evidence on the topic.
-              </li>
-              <li>
-                <strong>Expert Development:</strong> Our certified professionals
-                create content based on both research and practical experience.
-              </li>
-              <li>
-                <strong>Testing:</strong> Workouts and nutrition plans are
-                tested with real people before being published.
-              </li>
-              <li>
-                <strong>Peer Review:</strong> Content is reviewed by other
-                experts on our team to ensure accuracy.
-              </li>
-              <li>
-                <strong>User Feedback:</strong> We continuously update our
-                content based on community feedback and new research.
-              </li>
-            </ol>
-            <p>
-              This approach ensures that what you're reading isn't just
-              theoretically sound but also practical and effective in real-world
-              settings.
-            </p>
-          </TabsContent>
-        </Tabs>
       </section>
 
       <div className="my-16">

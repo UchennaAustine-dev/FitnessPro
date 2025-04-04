@@ -28,14 +28,19 @@ export function HeroSection() {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
+                {[
+                  "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
+                  "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
+                  "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
+                  "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
+                ].map((src, i) => (
                   <div
                     key={i}
                     className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden"
                   >
                     <Image
-                      src={`/placeholder.svg?height=40&width=40`}
-                      alt={`User ${i}`}
+                      src={src || "/placeholder.svg"}
+                      alt={`User ${i + 1}`}
                       width={40}
                       height={40}
                       className="object-cover"
@@ -55,7 +60,7 @@ export function HeroSection() {
           <div className="w-full md:w-1/2 relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=800"
+                src="https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
                 alt="Fitness training"
                 width={800}
                 height={600}

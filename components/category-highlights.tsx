@@ -8,7 +8,8 @@ const categories = [
     title: "Strength Training",
     description:
       "Build muscle, increase strength, and boost your metabolism with our expert strength training guides.",
-    image: "/placeholder.svg?height=300&width=400",
+    image:
+      "https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
     color: "from-blue-500 to-indigo-600",
     link: "/blog/category/strength-training",
   },
@@ -17,7 +18,8 @@ const categories = [
     title: "HIIT Workouts",
     description:
       "Burn maximum calories in minimum time with high-intensity interval training routines.",
-    image: "/placeholder.svg?height=300&width=400",
+    image:
+      "https://images.pexels.com/photos/1103242/pexels-photo-1103242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
     color: "from-red-500 to-pink-600",
     link: "/blog/category/hiit",
   },
@@ -26,7 +28,8 @@ const categories = [
     title: "Nutrition Guides",
     description:
       "Fuel your fitness journey with science-backed nutrition advice for optimal performance.",
-    image: "/placeholder.svg?height=300&width=400",
+    image:
+      "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1",
     color: "from-green-500 to-emerald-600",
     link: "/blog/category/nutrition",
   },

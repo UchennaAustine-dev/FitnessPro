@@ -40,12 +40,14 @@ interface Tag {
 const authors: Author[] = [
   {
     name: "John Doe",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar:
+      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
     role: "Fitness Coach",
   },
   {
     name: "Jane Smith",
-    avatar: "/placeholder.svg?height=40&width=40",
+    avatar:
+      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
     role: "Nutritionist",
   },
 ];
@@ -59,7 +61,8 @@ const posts: BlogPost[] = [
       "This high-intensity interval training routine is designed to maximize calorie burn in minimal time. Perfect for busy schedules and effective for weight loss.",
     content:
       "<p>High-Intensity Interval Training (HIIT) has revolutionized the fitness world with its ability to deliver maximum results in minimum time. This 20-minute workout is specifically designed to help you burn approximately 400 calories while improving your cardiovascular health and boosting your metabolism.</p><h2 id='why-hiit'>Why HIIT Works</h2><p>HIIT alternates between intense bursts of activity and fixed periods of less-intense activity or complete rest. This approach keeps your heart rate up and burns more fat in less time compared to steady-state cardio exercises.</p><h2 id='the-workout'>The Workout</h2><p>Complete each exercise at maximum effort for 40 seconds, followed by 20 seconds of rest. Repeat the entire circuit 4 times for a total of 20 minutes.</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/999309/pexels-photo-999309.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "April 15, 2023",
     author: authors[0],
     category: "HIIT",
@@ -81,7 +84,8 @@ const posts: BlogPost[] = [
       "Learn the proper squat technique to prevent injuries and maximize results. This comprehensive guide covers common mistakes and how to fix them.",
     content:
       "<p>The squat is often called the king of all exercises, and for good reason. It's a compound movement that engages multiple muscle groups simultaneously, making it incredibly effective for building strength and muscle mass.</p><h2 id='proper-form'>Proper Squat Form</h2><p>Stand with feet shoulder-width apart, toes slightly turned out. Keep your chest up and core engaged. Lower your body by bending at the knees and hips, as if sitting in a chair. Go as low as you can while maintaining proper form, ideally until your thighs are parallel to the ground.</p><h2 id='common-mistakes'>Common Mistakes</h2><p>Many beginners make the mistake of letting their knees cave inward or allowing their heels to lift off the ground. Both can lead to injuries over time.</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/4164761/pexels-photo-4164761.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "March 22, 2023",
     author: authors[0],
     category: "Strength Training",
@@ -101,7 +105,8 @@ const posts: BlogPost[] = [
       "Discover what to eat, when to eat, and how much to eat to maximize muscle growth. Includes meal plans and supplement recommendations.",
     content:
       "<p>Building muscle requires more than just lifting weights. Proper nutrition is essential for providing your body with the building blocks it needs to repair and grow muscle tissue.</p><h2 id='protein-needs'>Protein Requirements</h2><p>Aim for 1.6-2.2g of protein per kg of bodyweight daily. Good sources include lean meats, eggs, dairy, and plant-based options like tofu and legumes.</p><h2 id='carbs-fats'>Carbohydrates and Fats</h2><p>Carbohydrates fuel your workouts and recovery, while healthy fats support hormone production. Don't skimp on either!</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "February 10, 2023",
     author: authors[1],
     category: "Nutrition",
@@ -121,7 +126,8 @@ const posts: BlogPost[] = [
       "New to lifting weights? This comprehensive guide will teach you everything you need to know to start your strength training journey safely and effectively.",
     content:
       "<p>Strength training is one of the most beneficial forms of exercise for overall health and fitness. It builds muscle, increases bone density, improves metabolism, and enhances quality of life.</p><h2 id='getting-started'>Getting Started</h2><p>Begin with bodyweight exercises to learn proper movement patterns before adding external resistance. Focus on form over weight.</p><h2 id='basic-exercises'>Basic Exercises</h2><p>Master these fundamental movements: squats, push-ups, rows, lunges, and planks. These engage multiple muscle groups and form the foundation of any good program.</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "January 5, 2023",
     author: authors[0],
     category: "Strength Training",
@@ -141,7 +147,8 @@ const posts: BlogPost[] = [
       "Optimize your recovery with these science-backed techniques. Learn how proper recovery can enhance performance and prevent overtraining.",
     content:
       "<p>Recovery is just as important as training when it comes to improving performance and achieving fitness goals. Without adequate recovery, you risk overtraining, injury, and diminished results.</p><h2 id='sleep-optimization'>Sleep Optimization</h2><p>Aim for 7-9 hours of quality sleep per night. Create a sleep-conducive environment by keeping your bedroom dark, cool, and free from electronic distractions.</p><h2 id='active-recovery'>Active Recovery</h2><p>Light activity on rest days can enhance blood flow and accelerate recovery. Try walking, swimming, or gentle yoga.</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "December 12, 2022",
     author: authors[0],
     category: "Recovery",
@@ -161,7 +168,8 @@ const posts: BlogPost[] = [
       "Separate fact from fiction when it comes to cardiovascular exercise. Learn the truth about fat burning zones, fasted cardio, and more.",
     content:
       "<p>There's a lot of misinformation out there about cardio exercise. Let's clear up some common misconceptions with evidence-based facts.</p><h2 id='myth-1'>Myth 1: The Fat-Burning Zone</h2><p>While lower-intensity exercise does burn a higher percentage of calories from fat, higher-intensity exercise burns more total calories and more total fat.</p><h2 id='myth-2'>Myth 2: Fasted Cardio Burns More Fat</h2><p>Research shows that while fasted cardio might burn slightly more fat during the exercise itself, the difference in total fat loss over time is negligible.</p>",
-    coverImage: "/placeholder.svg?height=600&width=1200",
+    coverImage:
+      "https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "November 8, 2022",
     author: authors[1],
     category: "Cardio",

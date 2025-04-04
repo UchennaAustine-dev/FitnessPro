@@ -12,6 +12,26 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nutrition Resources | FitnessPro",
+  description:
+    "Explore science-backed nutrition advice, meal plans, recipes, and supplement guides to fuel your fitness journey.",
+  openGraph: {
+    title: "Nutrition Resources | FitnessPro",
+    description:
+      "Explore science-backed nutrition advice, meal plans, recipes, and supplement guides to fuel your fitness journey.",
+    images: [
+      {
+        url: "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&dpr=1",
+        width: 1200,
+        height: 630,
+        alt: "Nutrition Resources",
+      },
+    ],
+  },
+};
 
 const nutritionCategories = [
   { id: "meal-plans", name: "Meal Plans" },
@@ -26,7 +46,8 @@ const nutritionContent = [
     title: "7-Day Muscle Building Meal Plan",
     description:
       "A complete week of high-protein meals designed to support muscle growth and recovery.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "meal-plans",
     slug: "muscle-building-meal-plan",
   },
@@ -35,7 +56,8 @@ const nutritionContent = [
     title: "High-Protein Breakfast Recipes",
     description:
       "Start your day right with these protein-packed breakfast options that keep you full and energized.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1580466/pexels-photo-1580466.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "recipes",
     slug: "high-protein-breakfast",
   },
@@ -44,7 +66,8 @@ const nutritionContent = [
     title: "Complete Guide to Protein Supplements",
     description:
       "Learn about different types of protein supplements and how to choose the right one for your goals.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/3735704/pexels-photo-3735704.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "supplements",
     slug: "protein-supplements-guide",
   },
@@ -53,7 +76,8 @@ const nutritionContent = [
     title: "Nutrition for Fat Loss",
     description:
       "Evidence-based strategies for creating a sustainable nutrition plan that promotes fat loss.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "guides",
     slug: "nutrition-fat-loss",
   },
@@ -62,7 +86,8 @@ const nutritionContent = [
     title: "Post-Workout Nutrition Guide",
     description:
       "Optimize recovery and results with proper post-workout nutrition timing and composition.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "guides",
     slug: "post-workout-nutrition",
   },
@@ -71,7 +96,8 @@ const nutritionContent = [
     title: "Healthy Meal Prep for Busy Athletes",
     description:
       "Time-saving meal prep strategies and recipes for athletes with packed schedules.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "meal-plans",
     slug: "meal-prep-busy-athletes",
   },
@@ -80,7 +106,8 @@ const nutritionContent = [
     title: "Protein-Packed Smoothie Recipes",
     description:
       "Delicious and nutritious smoothie recipes that deliver protein, vitamins, and minerals.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "recipes",
     slug: "protein-smoothie-recipes",
   },
@@ -89,7 +116,8 @@ const nutritionContent = [
     title: "Pre-Workout Supplements: What Works",
     description:
       "An evidence-based look at pre-workout supplements and their effects on performance.",
-    image: "/placeholder.svg?height=300&width=500",
+    image:
+      "https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&dpr=1",
     category: "supplements",
     slug: "pre-workout-supplements",
   },
@@ -225,7 +253,7 @@ export default function NutritionPage() {
           </div>
           <div className="relative aspect-square rounded-xl overflow-hidden">
             <Image
-              src="/placeholder.svg?height=500&width=500"
+              src="https://images.pexels.com/photos/4506108/pexels-photo-4506108.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1"
               alt="Nutrition coaching"
               fill
               className="object-cover"
