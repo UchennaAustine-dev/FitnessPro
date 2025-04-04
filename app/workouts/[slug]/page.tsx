@@ -9,6 +9,49 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BlogAuthor } from "@/components/blog-author";
 import { RelatedPosts } from "@/components/related-posts";
 import { ShareButtons } from "@/components/share-buttons";
+import type { Metadata } from "next";
+
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Resolve params
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
+  const workout = getWorkout(slug);
+
+  if (!workout) {
+    return {
+      title: "Workout Not Found",
+    };
+  }
+
+  return {
+    title: workout.title,
+    description: workout.description,
+    openGraph: {
+      title: workout.title,
+      description: workout.description,
+      type: "article",
+      images: [
+        {
+          url: workout.image,
+          width: 1200,
+          height: 630,
+          alt: workout.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: workout.title,
+      description: workout.description,
+      images: [workout.image],
+    },
+  };
+}
 
 // This would be fetched from a database in a real app
 const getWorkout = (slug: string) => {
@@ -21,7 +64,8 @@ const getWorkout = (slug: string) => {
         "Build muscle and strength with this comprehensive full body workout routine.",
       longDescription:
         "This full-body strength workout is designed to target all major muscle groups in a single session. It's perfect for those looking to build overall strength and muscle mass while improving functional fitness. The workout follows a compound-first approach, starting with the most demanding multi-joint exercises when your energy is highest, then moving to isolation exercises to finish off specific muscle groups.",
-      image: "/placeholder.svg?height=600&width=1200",
+      image:
+        "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
       category: "strength",
       duration: 45,
       difficulty: "Intermediate",
@@ -37,7 +81,8 @@ const getWorkout = (slug: string) => {
       ],
       author: {
         name: "John Doe",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
         role: "Strength Coach",
       },
       exercises: [
@@ -49,7 +94,8 @@ const getWorkout = (slug: string) => {
           description:
             "Stand with feet shoulder-width apart, barbell across upper back. Bend knees and hips to lower until thighs are parallel to floor, then push back up.",
           tips: "Keep chest up and knees tracking over toes.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4164761/pexels-photo-4164761.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Bench Press",
@@ -59,7 +105,8 @@ const getWorkout = (slug: string) => {
           description:
             "Lie on bench with feet flat on floor. Grip barbell slightly wider than shoulder width. Lower bar to chest, then press back up to starting position.",
           tips: "Keep wrists straight and elbows at approximately 45° angle from body.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162451/pexels-photo-4162451.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Bent-Over Row",
@@ -69,7 +116,8 @@ const getWorkout = (slug: string) => {
           description:
             "Hinge at hips with slight knee bend, back flat. Pull barbell to lower ribs, squeezing shoulder blades together.",
           tips: "Keep core tight and avoid rounding your back.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162579/pexels-photo-4162579.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Overhead Press",
@@ -79,7 +127,8 @@ const getWorkout = (slug: string) => {
           description:
             "Stand with feet shoulder-width apart, barbell at shoulder height. Press weight overhead until arms are fully extended.",
           tips: "Avoid excessive arching of the lower back.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162456/pexels-photo-4162456.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Romanian Deadlift",
@@ -89,7 +138,8 @@ const getWorkout = (slug: string) => {
           description:
             "Hold barbell in front of thighs, feet hip-width apart. Hinge at hips, lowering barbell while keeping back flat. Return to standing by driving hips forward.",
           tips: "Feel the stretch in your hamstrings and maintain a neutral spine.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4164766/pexels-photo-4164766.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Dumbbell Bicep Curl",
@@ -99,7 +149,8 @@ const getWorkout = (slug: string) => {
           description:
             "Stand with dumbbells at sides, palms facing forward. Curl weights toward shoulders, keeping elbows close to ribs.",
           tips: "Avoid swinging the weights or using momentum.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162487/pexels-photo-4162487.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Tricep Pushdown",
@@ -109,7 +160,8 @@ const getWorkout = (slug: string) => {
           description:
             "Stand facing cable machine with rope attachment at chest height. Push rope down until arms are fully extended, keeping elbows close to body.",
           tips: "Focus on using your triceps, not your shoulders.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162538/pexels-photo-4162538.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Plank",
@@ -119,7 +171,8 @@ const getWorkout = (slug: string) => {
           description:
             "Support body on forearms and toes, forming a straight line from head to heels. Hold position while keeping core engaged.",
           tips: "Don't let your hips sag or pike up.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162511/pexels-photo-4162511.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
       ],
       warmup:
@@ -137,7 +190,8 @@ const getWorkout = (slug: string) => {
         "Maximize fat loss with this high-intensity interval training session that burns up to 400 calories.",
       longDescription:
         "This high-intensity interval training (HIIT) workout is designed to maximize calorie burn in minimal time. By alternating between intense work periods and brief recovery periods, you'll keep your heart rate elevated while boosting your metabolism for hours after your workout. This routine requires no equipment and can be done anywhere, making it perfect for busy schedules.",
-      image: "/placeholder.svg?height=600&width=1200",
+      image:
+        "https://images.pexels.com/photos/999309/pexels-photo-999309.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
       category: "hiit",
       duration: 20,
       difficulty: "Advanced",
@@ -145,7 +199,8 @@ const getWorkout = (slug: string) => {
       targetMuscles: ["Full Body", "Cardiovascular System"],
       author: {
         name: "Jane Smith",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar:
+          "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&dpr=1",
         role: "HIIT Specialist",
       },
       exercises: [
@@ -157,7 +212,8 @@ const getWorkout = (slug: string) => {
           description:
             "Start standing with arms at sides. Jump feet out while raising arms overhead, then return to starting position.",
           tips: "Keep a soft bend in knees and land lightly.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162510/pexels-photo-4162510.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Mountain Climbers",
@@ -167,7 +223,8 @@ const getWorkout = (slug: string) => {
           description:
             "Start in push-up position. Alternately drive knees toward chest in a running motion.",
           tips: "Keep hips low and core engaged throughout the movement.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162505/pexels-photo-4162505.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Burpees",
@@ -177,7 +234,8 @@ const getWorkout = (slug: string) => {
           description:
             "Begin standing, then squat down and place hands on floor. Jump feet back to plank position, perform a push-up, jump feet forward, and explosively jump up with arms overhead.",
           tips: "Modify by stepping back instead of jumping if needed.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162495/pexels-photo-4162495.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "High Knees",
@@ -187,7 +245,8 @@ const getWorkout = (slug: string) => {
           description:
             "Run in place, lifting knees toward chest. Pump arms in a running motion.",
           tips: "Stay on balls of feet and maintain a quick pace.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162453/pexels-photo-4162453.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Plank Jacks",
@@ -197,7 +256,8 @@ const getWorkout = (slug: string) => {
           description:
             "Start in plank position. Jump feet out wide and then back together, similar to a jumping jack motion.",
           tips: "Keep shoulders over wrists and maintain a stable core.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162511/pexels-photo-4162511.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Squat Jumps",
@@ -207,7 +267,8 @@ const getWorkout = (slug: string) => {
           description:
             "Perform a bodyweight squat, then explosively jump up. Land softly and immediately lower into the next squat.",
           tips: "Land with soft knees to absorb impact.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162501/pexels-photo-4162501.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Push-up to Side Plank",
@@ -217,7 +278,8 @@ const getWorkout = (slug: string) => {
           description:
             "Perform a push-up, then rotate into a side plank by lifting one arm toward ceiling. Return to push-up position and repeat on opposite side.",
           tips: "Modify with knee push-ups if needed.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162493/pexels-photo-4162493.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
         {
           name: "Speed Skaters",
@@ -227,7 +289,8 @@ const getWorkout = (slug: string) => {
           description:
             "Jump laterally from one foot to the other, bringing trailing leg behind standing leg. Swing arms across body in the direction of each jump.",
           tips: "Jump as far to the side as possible for maximum intensity.",
-          image: "/placeholder.svg?height=300&width=400",
+          image:
+            "https://images.pexels.com/photos/4162457/pexels-photo-4162457.jpeg?auto=compress&cs=tinysrgb&w=300&h=400&dpr=1",
         },
       ],
       warmup:
@@ -242,8 +305,12 @@ const getWorkout = (slug: string) => {
   return workouts.find((workout) => workout.slug === slug);
 };
 
-export default function WorkoutPage({ params }: { params: { slug: string } }) {
-  const workout = getWorkout(params.slug);
+export default async function WorkoutPage({ params }: Props) {
+  // Resolve params
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
+  const workout = getWorkout(slug);
 
   if (!workout) {
     notFound();

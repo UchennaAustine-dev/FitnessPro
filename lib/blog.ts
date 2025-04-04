@@ -21,6 +21,7 @@ interface BlogPost {
   difficulty: "Beginner" | "Intermediate" | "Advanced";
   headings: { id: string; text: string; level: number }[];
   workoutPlan?: string;
+  tags?: string[];
 }
 
 interface Category {
@@ -65,7 +66,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/999309/pexels-photo-999309.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "April 15, 2023",
     author: authors[0],
-    category: "HIIT",
+    category: "hiit",
     readTime: 5,
     commentCount: 24,
     difficulty: "Intermediate",
@@ -75,6 +76,7 @@ const posts: BlogPost[] = [
     ],
     workoutPlan:
       "<ul><li><strong>Jump Squats</strong>: 40 seconds</li><li><strong>Push-ups</strong>: 40 seconds</li><li><strong>Burpees</strong>: 40 seconds</li><li><strong>Mountain Climbers</strong>: 40 seconds</li><li><strong>High Knees</strong>: 40 seconds</li></ul><p>Rest 20 seconds between each exercise. Complete 4 rounds.</p>",
+    tags: ["hiit", "weight-loss", "home-workout"],
   },
   {
     id: "2",
@@ -88,7 +90,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/4164761/pexels-photo-4164761.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "March 22, 2023",
     author: authors[0],
-    category: "Strength Training",
+    category: "strength-training",
     readTime: 7,
     commentCount: 17,
     difficulty: "Beginner",
@@ -96,6 +98,7 @@ const posts: BlogPost[] = [
       { id: "proper-form", text: "Proper Squat Form", level: 2 },
       { id: "common-mistakes", text: "Common Mistakes", level: 2 },
     ],
+    tags: ["strength-training", "technique", "bodyweight"],
   },
   {
     id: "3",
@@ -109,7 +112,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/1640770/pexels-photo-1640770.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "February 10, 2023",
     author: authors[1],
-    category: "Nutrition",
+    category: "nutrition",
     readTime: 10,
     commentCount: 32,
     difficulty: "Intermediate",
@@ -117,6 +120,7 @@ const posts: BlogPost[] = [
       { id: "protein-needs", text: "Protein Requirements", level: 2 },
       { id: "carbs-fats", text: "Carbohydrates and Fats", level: 2 },
     ],
+    tags: ["nutrition", "muscle-building", "supplements"],
   },
   {
     id: "4",
@@ -130,7 +134,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "January 5, 2023",
     author: authors[0],
-    category: "Strength Training",
+    category: "strength-training",
     readTime: 8,
     commentCount: 45,
     difficulty: "Beginner",
@@ -138,6 +142,7 @@ const posts: BlogPost[] = [
       { id: "getting-started", text: "Getting Started", level: 2 },
       { id: "basic-exercises", text: "Basic Exercises", level: 2 },
     ],
+    tags: ["strength-training", "beginners", "bodyweight"],
   },
   {
     id: "5",
@@ -151,7 +156,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "December 12, 2022",
     author: authors[0],
-    category: "Recovery",
+    category: "recovery",
     readTime: 6,
     commentCount: 19,
     difficulty: "Advanced",
@@ -159,6 +164,7 @@ const posts: BlogPost[] = [
       { id: "sleep-optimization", text: "Sleep Optimization", level: 2 },
       { id: "active-recovery", text: "Active Recovery", level: 2 },
     ],
+    tags: ["recovery", "stretching", "sleep"],
   },
   {
     id: "6",
@@ -172,7 +178,7 @@ const posts: BlogPost[] = [
       "https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=1",
     date: "November 8, 2022",
     author: authors[1],
-    category: "Cardio",
+    category: "cardio",
     readTime: 5,
     commentCount: 27,
     difficulty: "Beginner",
@@ -180,6 +186,7 @@ const posts: BlogPost[] = [
       { id: "myth-1", text: "Myth 1: The Fat-Burning Zone", level: 2 },
       { id: "myth-2", text: "Myth 2: Fasted Cardio Burns More Fat", level: 2 },
     ],
+    tags: ["cardio", "running", "weight-loss"],
   },
 ];
 
@@ -209,6 +216,22 @@ export function getBlogPosts(): BlogPost[] {
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return posts.find((post) => post.slug === slug);
+}
+
+export function getBlogPostsByCategory(categorySlug: string): BlogPost[] {
+  return posts.filter((post) => post.category === categorySlug);
+}
+
+export function getBlogPostsByTag(tagSlug: string): BlogPost[] {
+  return posts.filter((post) => post.tags?.includes(tagSlug));
+}
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find((category) => category.slug === slug);
+}
+
+export function getTagBySlug(slug: string): Tag | undefined {
+  return tags.find((tag) => tag.slug === slug);
 }
 
 export function getFeaturedPosts(): BlogPost[] {

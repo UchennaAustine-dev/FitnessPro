@@ -8,10 +8,59 @@ import { CommentSection } from "@/components/comment-section";
 import { TableOfContents } from "@/components/table-of-contents";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { getBlogPost } from "@/lib/blog";
+import type { Metadata } from "next";
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Resolve params
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
+  const post = getBlogPost(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author.name],
+      images: [
+        {
+          url: post.coverImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.coverImage],
+    },
+  };
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  // Resolve params
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
   // In a real app, this would fetch from a CMS or database
-  const post = getBlogPost(params.slug);
+  const post = getBlogPost(slug);
 
   if (!post) {
     notFound();
@@ -47,7 +96,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <aside className="hidden md:block w-1/4">
             <div className="sticky top-24">
               <TableOfContents headings={post.headings} />
-              <ShareButtons url={`/blog/${params.slug}`} title={post.title} />
+              <ShareButtons url={`/blog/${slug}`} title={post.title} />
             </div>
           </aside>
 
@@ -73,11 +122,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </article>
 
       <div className="max-w-4xl mx-auto mt-12">
-        <CommentSection postId={params.slug} />
+        <CommentSection postId={slug} />
       </div>
 
       <div className="mt-16">
-        <RelatedPosts currentPostId={params.slug} category={post.category} />
+        <RelatedPosts currentPostId={slug} category={post.category} />
       </div>
 
       <div className="mt-16">
