@@ -2,27 +2,28 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
+import { Suspense } from "react";
 
-export function Analytics() {
+function AnalyticsCore() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // This would be replaced with actual analytics code
     const url =
       pathname +
       (searchParams?.toString() ? `?${searchParams.toString()}` : "");
     console.log(`Page view: ${url}`);
 
-    // Track page view
-    const trackPageView = () => {
-      console.log("Tracking page view:", url);
-      // In a real app, this would call your analytics service
-      // Example: vercelAnalytics.track('page_view', { path: url })
-    };
-
-    trackPageView();
+    // Your actual analytics tracking logic here
   }, [pathname, searchParams]);
 
   return null;
+}
+
+export function Analytics() {
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsCore />
+    </Suspense>
+  );
 }
