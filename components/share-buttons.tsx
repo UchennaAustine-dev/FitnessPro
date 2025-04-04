@@ -2,7 +2,7 @@
 
 import { Facebook, Twitter, Linkedin, Link2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 interface ShareButtonsProps {
   url: string;
@@ -14,10 +14,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(fullUrl);
-    toast({
-      title: "Link copied",
-      description: "The link has been copied to your clipboard",
-    });
+    toast.success("Link copied to clipboard");
   };
 
   const shareOnTwitter = () => {
