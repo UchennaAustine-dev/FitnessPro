@@ -7,6 +7,7 @@ import { SonnerProvider } from "@/components/sonner-provider";
 import { Header } from "@/components/common/header";
 import { Footer } from "@/components/common/footer";
 import { Analytics } from "@/components/analytics";
+import { GDPRConsentBanner } from "@/components/gdpr-consent-banner";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -108,6 +109,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="text/javascript"
+          src="https://fstatic.netpub.media/extra/cmp/cmp-gdpr.js"
+          defer
+        />
+      </head>
       <body className={`${montserrat.variable} ${oswald.variable}`}>
         <ThemeProvider
           attribute="class"
@@ -120,6 +128,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <GDPRConsentBanner />
           <SonnerProvider />
           <Analytics />
         </ThemeProvider>
