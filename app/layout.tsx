@@ -8,6 +8,8 @@ import { Header } from "@/components/common/header";
 import { Footer } from "@/components/common/footer";
 import { Analytics } from "@/components/analytics";
 import { GDPRConsentBanner } from "@/components/gdpr-consent-banner";
+import { NetpubScriptLoader } from "@/components/ads/script-loader";
+import { InterstitialAd } from "@/components/ads/interstitial-ad";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -131,6 +133,8 @@ export default function RootLayout({
           <GDPRConsentBanner />
           <SonnerProvider />
           <Analytics />
+          <NetpubScriptLoader />
+          <InterstitialAd />
         </ThemeProvider>
       </body>
     </html>

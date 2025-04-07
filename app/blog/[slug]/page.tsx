@@ -8,6 +8,10 @@ import { CommentSection } from "@/components/comment-section";
 import { TableOfContents } from "@/components/table-of-contents";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { getBlogPost } from "@/lib/blog";
+import { LeaderboardAd } from "@/components/ads/leaderboard-ad";
+import { RectangleAd } from "@/components/ads/rectangle-ad";
+import { ParallaxAd } from "@/components/ads/parallax-ad";
+import { InterstitialAd } from "@/components/ads/interstitial-ad";
 import type { Metadata } from "next";
 
 type Props = {
@@ -68,6 +72,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      <InterstitialAd />
+
+      <LeaderboardAd className="mb-8 mx-auto max-w-4xl" />
+
       <article className="max-w-4xl mx-auto">
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
           {post.title}
@@ -97,6 +105,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="sticky top-24">
               <TableOfContents headings={post.headings} />
               <ShareButtons url={`/blog/${slug}`} title={post.title} />
+              <RectangleAd className="mt-6" />
             </div>
           </aside>
 
@@ -105,6 +114,8 @@ export default async function BlogPostPage({ params }: Props) {
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            <ParallaxAd className="my-8" />
 
             {post.workoutPlan && (
               <div className="my-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
@@ -120,6 +131,8 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </article>
+
+      <LeaderboardAd className="my-8 mx-auto max-w-4xl" />
 
       <div className="max-w-4xl mx-auto mt-12">
         <CommentSection postId={slug} />

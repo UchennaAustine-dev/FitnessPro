@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import { LeaderboardAd } from "@/components/ads/leaderboard-ad";
+import { RectangleAd } from "@/components/ads/rectangle-ad";
+import { InterstitialAd } from "@/components/ads/interstitial-ad";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -126,6 +129,8 @@ const workouts = [
 export default function WorkoutsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
+      <InterstitialAd number={2} />
+
       <div className="text-center mb-12">
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
           Workout Library
@@ -136,6 +141,8 @@ export default function WorkoutsPage() {
           perfect routine for your goals.
         </p>
       </div>
+
+      <LeaderboardAd className="mb-8 mx-auto" />
 
       <Tabs defaultValue="all" className="mb-12">
         <TabsList className="flex flex-wrap justify-center mb-8">
@@ -151,8 +158,13 @@ export default function WorkoutsPage() {
           value="all"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {workouts.map((workout) => (
-            <WorkoutCard key={workout.id} workout={workout} />
+          {workouts.map((workout, index) => (
+            <>
+              <WorkoutCard key={workout.id} workout={workout} />
+              {index === 2 && (
+                <RectangleAd className="mx-auto md:col-span-2 lg:col-span-3" />
+              )}
+            </>
           ))}
         </TabsContent>
 
@@ -164,8 +176,15 @@ export default function WorkoutsPage() {
           >
             {workouts
               .filter((workout) => workout.category === category.id)
-              .map((workout) => (
-                <WorkoutCard key={workout.id} workout={workout} />
+              .map((workout, index) => (
+                <>
+                  <WorkoutCard key={workout.id} workout={workout} />
+                  {index === 1 &&
+                    workouts.filter((w) => w.category === category.id).length >
+                      2 && (
+                      <RectangleAd className="mx-auto md:col-span-2 lg:col-span-3" />
+                    )}
+                </>
               ))}
           </TabsContent>
         ))}

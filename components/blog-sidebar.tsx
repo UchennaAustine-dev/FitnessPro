@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getPopularPosts, getCategories, getTags } from "@/lib/blog";
+import { RectangleAd } from "@/components/ads/rectangle-ad";
+import { LargeRectangleAd } from "@/components/ads/large-rectangle-ad";
 
 export function BlogSidebar() {
   // In a real app, this would fetch from a CMS or database
@@ -20,6 +22,8 @@ export function BlogSidebar() {
           <Input placeholder="Search articles..." className="pl-10" />
         </div>
       </div>
+
+      <RectangleAd className="mx-auto" />
 
       <div>
         <h3 className="font-heading text-lg font-bold mb-4">Popular Posts</h3>
@@ -62,6 +66,8 @@ export function BlogSidebar() {
           ))}
         </div>
       </div>
+
+      <LargeRectangleAd className="mx-auto" />
 
       <div>
         <h3 className="font-heading text-lg font-bold mb-4">Tags</h3>

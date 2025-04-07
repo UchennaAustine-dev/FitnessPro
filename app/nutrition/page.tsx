@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import { LeaderboardAd } from "@/components/ads/leaderboard-ad";
+import { BillboardAd } from "@/components/ads/billboard-ad";
+import { ParallaxAd } from "@/components/ads/parallax-ad";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -136,6 +139,8 @@ export default function NutritionPage() {
         </p>
       </div>
 
+      <LeaderboardAd className="mb-8 mx-auto" />
+
       <Tabs defaultValue="all" className="mb-12">
         <TabsList className="flex flex-wrap justify-center mb-8">
           <TabsTrigger value="all">All Resources</TabsTrigger>
@@ -150,8 +155,13 @@ export default function NutritionPage() {
           value="all"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {nutritionContent.map((item) => (
-            <NutritionCard key={item.id} item={item} />
+          {nutritionContent.map((item, index) => (
+            <>
+              <NutritionCard key={item.id} item={item} />
+              {index === 2 && (
+                <ParallaxAd className="mx-auto md:col-span-2 lg:col-span-3" />
+              )}
+            </>
           ))}
         </TabsContent>
 
@@ -163,8 +173,15 @@ export default function NutritionPage() {
           >
             {nutritionContent
               .filter((item) => item.category === category.id)
-              .map((item) => (
-                <NutritionCard key={item.id} item={item} />
+              .map((item, index) => (
+                <>
+                  <NutritionCard key={item.id} item={item} />
+                  {index === 1 &&
+                    nutritionContent.filter((i) => i.category === category.id)
+                      .length > 2 && (
+                      <BillboardAd className="mx-auto md:col-span-2 lg:col-span-3" />
+                    )}
+                </>
               ))}
           </TabsContent>
         ))}
