@@ -43,6 +43,7 @@ const navItems = [
   { label: "Nutrition", href: "/nutrition" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Ad Showcase", href: "/ad-showcase" },
 ];
 
 export function Header() {
