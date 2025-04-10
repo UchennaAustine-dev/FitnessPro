@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
         privacy regarding any information we may collect from you across our
         website,{" "}
         <Link href="/" className="underline">
-          example.com
+          fitness-pro.site
         </Link>
         , and other sites we own and operate.
       </p>

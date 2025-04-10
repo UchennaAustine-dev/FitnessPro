@@ -13,6 +13,7 @@ import { RectangleAd } from "@/components/ads/rectangle-ad";
 import { ParallaxAd } from "@/components/ads/parallax-ad";
 import { InterstitialAd } from "@/components/ads/interstitial-ad";
 import type { Metadata } from "next";
+import { generateBlogPostSchema } from "@/lib/schema";
 
 type Props = {
   params: { slug: string };
@@ -69,7 +70,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
-
+  // Add structured data for SEO
+  const jsonLd = generateBlogPostSchema(post);
   return (
     <div className="container mx-auto px-4 py-8">
       <InterstitialAd />

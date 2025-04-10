@@ -60,14 +60,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://fitness-pro.site"),
+  metadataBase: new URL("https://www.fitness-pro.site"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://fitness-pro.site",
+    url: "https://www.fitness-pro.site",
     siteName: "FitnessPro",
     title: "FitnessPro | Health & Fitness Blog",
     description:

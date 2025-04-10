@@ -10,6 +10,7 @@ import { BlogAuthor } from "@/components/blog-author";
 import { RelatedPosts } from "@/components/related-posts";
 import { ShareButtons } from "@/components/share-buttons";
 import type { Metadata } from "next";
+import { generateWorkoutSchema } from "@/lib/schema";
 
 type Props = {
   params: { slug: string };
@@ -315,6 +316,9 @@ export default async function WorkoutPage({ params }: Props) {
   if (!workout) {
     notFound();
   }
+
+  // Add structured data for SEO
+  const jsonLd = generateWorkoutSchema(workout);
 
   return (
     <div className="container mx-auto px-4 py-8">
