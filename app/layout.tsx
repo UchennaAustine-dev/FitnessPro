@@ -10,6 +10,7 @@ import { Analytics } from "@/components/analytics";
 import { GDPRConsentBanner } from "@/components/gdpr-consent-banner";
 import { NetpubScriptLoader } from "@/components/ads/script-loader";
 import { InterstitialAd } from "@/components/ads/interstitial-ad";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -116,6 +117,12 @@ export default function RootLayout({
           type="text/javascript"
           src="https://fstatic.netpub.media/extra/cmp/cmp-gdpr.js"
           defer
+        />
+        <Script
+          src="https://kulroakonsu.net/88/tag.min.js"
+          data-zone="142550"
+          async
+          data-cfasync="false"
         />
       </head>
       <body className={`${montserrat.variable} ${oswald.variable}`}>
