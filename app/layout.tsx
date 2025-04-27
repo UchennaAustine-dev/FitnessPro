@@ -118,6 +118,11 @@ export default function RootLayout({
           src="https://fstatic.netpub.media/extra/cmp/cmp-gdpr.js"
           defer
         />
+        <script
+          type="text/javascript"
+          async
+          src="https://platform.foremedia.net/code/59490/analytics"
+        />
         <Script
           src="https://kulroakonsu.net/88/tag.min.js"
           data-zone="142550"
