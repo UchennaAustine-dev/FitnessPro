@@ -11,6 +11,7 @@ import { RelatedPosts } from "@/components/related-posts";
 import { ShareButtons } from "@/components/share-buttons";
 import type { Metadata } from "next";
 import { generateWorkoutSchema } from "@/lib/schema";
+import { AdPlacement } from "@/components/ads/ad-placement";
 
 type Props = {
   params: { slug: string };
@@ -329,6 +330,8 @@ export default async function WorkoutPage({ params }: Props) {
         </Link>
       </Button>
 
+      <AdPlacement adId="c2" className="my-6 flex justify-center" />
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <div className="relative aspect-video rounded-xl overflow-hidden mb-6">
@@ -383,6 +386,8 @@ export default async function WorkoutPage({ params }: Props) {
           <div className="prose prose-lg max-w-none my-8">
             <p>{workout.longDescription}</p>
           </div>
+
+          <AdPlacement adId="c3" className="my-6 flex justify-center" />
 
           <div className="my-8">
             <h2 className="font-heading text-2xl font-bold mb-4">
@@ -613,6 +618,8 @@ export default async function WorkoutPage({ params }: Props) {
               </div>
             </div>
 
+            <AdPlacement adId="e1" className="my-4" />
+
             <ShareButtons
               url={`/workouts/${workout.slug}`}
               title={workout.title}
@@ -620,7 +627,7 @@ export default async function WorkoutPage({ params }: Props) {
           </div>
         </div>
       </div>
-
+      <AdPlacement adId="c5" className="my-8 flex justify-center" />
       <div className="mt-16">
         <h2 className="font-heading text-2xl font-bold mb-6">
           Related Workouts

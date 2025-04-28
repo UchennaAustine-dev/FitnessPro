@@ -6,6 +6,7 @@ import { LeaderboardAd } from "@/components/ads/leaderboard-ad";
 import { BillboardAd } from "@/components/ads/billboard-ad";
 import { StickyAd } from "@/components/ads/sticky-ad";
 import { generateWebsiteSchema } from "@/lib/schema";
+import { AdPlacement } from "@/components/ads/ad-placement";
 
 export default function Home() {
   return (
@@ -19,13 +20,13 @@ export default function Home() {
       <HeroSection />
 
       <LeaderboardAd className="my-8 mx-auto" />
-
+      <AdPlacement adId="c2" className="my-8 flex justify-center" />
       <FeaturedPosts />
-
+      <AdPlacement adId="c3" className="my-8 flex justify-center" />
       <BillboardAd className="my-8 mx-auto" />
 
       <CategoryHighlights />
-
+      <AdPlacement adId="c4" className="my-8 flex justify-center" />
       <NewsletterCta />
 
       <StickyAd />

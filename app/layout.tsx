@@ -11,6 +11,8 @@ import { GDPRConsentBanner } from "@/components/gdpr-consent-banner";
 import { NetpubScriptLoader } from "@/components/ads/script-loader";
 import { InterstitialAd } from "@/components/ads/interstitial-ad";
 import Script from "next/script";
+import { AdPlacement } from "@/components/ads/ad-placement";
+import { CustomScript } from "@/components/ads/custom-script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -139,12 +141,23 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen flex-col">
             <Header />
+            {/* Top ad placement */}
+            <AdPlacement adId="c1" className="my-4 flex justify-center" />
             <main className="flex-1">{children}</main>
+            {/* Footer ad placement */}
+            <AdPlacement adId="footer" className="my-4 flex justify-center" />
             <Footer />
           </div>
+          {/* Floating footer ad */}
+          <AdPlacement adId="footer_float" />
+          {/* Pop ads */}
+          <AdPlacement adId="pop_ads" />
           <GDPRConsentBanner />
           <SonnerProvider />
           <Analytics />
+          {/* Custom scripts */}
+          <CustomScript scriptId="31402" />
+          <CustomScript scriptId="31403" />
           <NetpubScriptLoader />
           <InterstitialAd />
         </ThemeProvider>

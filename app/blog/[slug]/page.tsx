@@ -14,6 +14,7 @@ import { ParallaxAd } from "@/components/ads/parallax-ad";
 import { InterstitialAd } from "@/components/ads/interstitial-ad";
 import type { Metadata } from "next";
 import { generateBlogPostSchema } from "@/lib/schema";
+import { AdPlacement } from "@/components/ads/ad-placement";
 
 type Props = {
   params: { slug: string };
@@ -102,12 +103,15 @@ export default async function BlogPostPage({ params }: Props) {
           />
         </div>
 
+        <AdPlacement adId="c2" className="my-6 flex justify-center" />
+
         <div className="flex flex-col md:flex-row gap-8">
           <aside className="hidden md:block w-1/4">
             <div className="sticky top-24">
               <TableOfContents headings={post.headings} />
               <ShareButtons url={`/blog/${slug}`} title={post.title} />
               <RectangleAd className="mt-6" />
+              <AdPlacement adId="e1" />
             </div>
           </aside>
 
@@ -118,7 +122,7 @@ export default async function BlogPostPage({ params }: Props) {
             />
 
             <ParallaxAd className="my-8" />
-
+            <AdPlacement adId="c3" className="my-8 flex justify-center" />
             {post.workoutPlan && (
               <div className="my-8 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <h2 className="font-heading text-2xl font-bold mb-4">
@@ -135,7 +139,7 @@ export default async function BlogPostPage({ params }: Props) {
       </article>
 
       <LeaderboardAd className="my-8 mx-auto max-w-4xl" />
-
+      <AdPlacement adId="c4" className="my-8 flex justify-center" />
       <div className="max-w-4xl mx-auto mt-12">
         <CommentSection postId={slug} />
       </div>
@@ -143,7 +147,7 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="mt-16">
         <RelatedPosts currentPostId={slug} category={post.category} />
       </div>
-
+      <AdPlacement adId="c5" className="my-8 flex justify-center" />
       <div className="mt-16">
         <NewsletterCta />
       </div>
