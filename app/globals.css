@@ -194,6 +194,12 @@
   .prose pre {
     @apply bg-muted p-4 rounded-lg overflow-x-auto;
   }
+
+    /* Ad container styles */
+    .ad-container {
+      @apply w-full overflow-hidden;
+      min-height: 90px;
+    }
 }
 
 /* Custom animations */
